@@ -1,0 +1,88 @@
+::selection {
+	background: #28e;
+	color: #6cf;
+}
+html, body {
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+  font: 14px/20px arial;
+  background: #222;
+}
+html {
+	display: table;
+}
+.palette {
+	position: relative;
+	margin: auto;
+	padding: 50px;
+	width: 640px;
+	background: #fff;
+	box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+}
+h1 {
+	margin: auto;
+	width: 740px;
+	font: 40px/.7 Arvo,Museo Slab,serif;
+	color: #fff;
+	text-shadow: 2px 2px 5px rgba(0,0,0,.1);
+}
+.color {
+	position: relative;
+	display: inline-block;
+	margin: 10px;
+	width: 60px;
+	height: 60px;
+}
+.dot {
+	display: inline-block;
+	margin: auto;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+}
+.info {
+	position: absolute;
+	top: 60px;
+	left: -5px;
+	vertical-align: top;
+  display: none;
+	margin: 0;
+	padding: 10px;
+	width: 160px;
+	border-radius: 5px;
+	font: 12px arial;
+	background: #222;
+	color: #eee;
+}
+.color:hover .info {
+	display: block;
+}
+.info h3 { font: bold 12px arial; margin: 15px 0 0 0; }
+.info::before {
+	content: "";
+	position: absolute;
+	top: -5px;
+	left: 30px;
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-top: 0;
+	border-bottom-color: #222;
+}
+
+.info dt {
+	display: inline-block;
+	margin: 0;
+	width: 40px;
+	font-weight: bold;
+}
+.info dd {
+	display: inline-block;
+	margin: 0;
+	width: 100px;
+	cursor: text;
+}
