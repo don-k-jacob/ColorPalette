@@ -1,0 +1,77 @@
+@import "compass/css3";
+*, *:after, *:before{
+  @include box-sizing(border-box);
+}
+body{
+  margin: 0;
+}
+ .palette{
+    width: 7.14%;
+    height: 100px;
+    float: left;
+   position: relative;
+   @include transform-origin(0% , 100%);
+   @include transition(.1s);
+   z-index: 5;
+   &:hover{
+     z-index: 10;
+     cursor: pointer;
+     @include rotate(-10deg);
+    @include box-shadow(0 5px 12px rgba(0, 0, 0, 0.17), 0 4px 15px rgba(0, 0, 0, 0.15));
+   }
+   
+   &.open{
+     @include transform-origin(50% , 50%);
+      @include transform( scale(2.5) rotate(90deg));
+     z-index: 50;
+     &:hover{  z-index: 55;}
+     
+     .close{display: block;}
+     .code {
+       opacity: 1;
+       &::after{
+         opacity: 1;
+         color: rgba(0,0,0,0);
+         @include text-shadow(none);
+       }
+     }
+   }
+  }
+.close{
+    display: none;
+    color: #fff;
+    padding-left: 3px;
+    text-shadow: 0 1px 0px rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+    user-select:none;
+}
+.code {
+    opacity: 0;
+    @include rotate(-90deg);
+    position: absolute;
+    color: #fff;
+    font-size: 14px;
+    left: 0px;
+    top: 50%;
+  padding: 10px;
+    @include text-shadow(0 0 1px rgba(0, 0, 0, .5));
+   &::after{
+    content: 'Color Copied';
+     font-size: 6px;
+     top: 25px;
+     color: #333;
+     opacity: 0;
+     @include transition(opacity .3s .3s, color .3s 2s , text-shadow .3s 2s);
+     position: absolute;
+     width: 100%;
+     left: 10px;
+  }
+}
+#clipBoard{
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+}
+@media(max-width:640px){ .palette{width: 14.25%;}}
+@media(max-width:480px){ .palette{width: 25%;}}
+@media(max-width:320px){ .palette{width: 33%;}}
